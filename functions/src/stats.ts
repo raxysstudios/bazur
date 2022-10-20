@@ -1,31 +1,29 @@
-import * as admin from "firebase-admin";
+/* eslint-disable require-jsdoc */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import * as functions from "firebase-functions";
-import algoliasearch from "algoliasearch";
+import {firestore} from "firebase-admin";
 
-const dictionary = algoliasearch(
-    functions.config().algolia.app,
-    functions.config().algolia.key
-).initIndex("dictionary");
+function getLangDoc(entry: functions.firestore.QueryDocumentSnapshot):
+  firestore.DocumentReference<firestore.DocumentData> {
+  const lang = entry.get("language");
+  return firestore().doc(`languages/${lang}`);
+}
 
-export const collectStats = functions
+export const countEntry = functions
     .region("europe-central2")
-    .pubsub.schedule("every 24 hours")
-    .timeZone("Europe/Moscow")
-    .onRun(async () => {
-      const db = admin.firestore();
-      const langs = await db
-          .collection("languages")
-          .get()
-          .then((d) => d.docs.map((l) => l.id));
+    .firestore.document("dictionary/{entryID}")
+    .onCreate(async (entry) => {
+      await getLangDoc(entry).update({
+        dictionary: firestore.FieldValue.increment(1),
+      });
+    });
 
-      for (const lang of langs) {
-        await db.doc("languages/" + lang).update({
-          dictionary: await dictionary
-              .search("", {
-                facetFilters: ["language:" + lang],
-                hitsPerPage: 0,
-              })
-              .then((s) => s.nbHits),
-        });
-      }
+export const discountEntry = functions
+    .region("europe-central2")
+    .firestore.document("dictionary/{entryID}")
+    .onDelete(async (entry) => {
+      await getLangDoc(entry).update({
+        dictionary: firestore.FieldValue.increment(-1),
+      });
     });
