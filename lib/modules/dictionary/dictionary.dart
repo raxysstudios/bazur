@@ -11,13 +11,13 @@ import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-import 'services/search_controller.dart';
+import 'services/algolia_search_controller.dart';
 import 'services/word.dart';
 import 'widgets/search_toolbar.dart';
 
 @RoutePage()
 class DictionaryScreen extends StatefulWidget {
-  const DictionaryScreen({Key? key}) : super(key: key);
+  const DictionaryScreen({super.key});
 
   @override
   State<DictionaryScreen> createState() => DictionaryScreenState();
@@ -29,7 +29,7 @@ class DictionaryScreenState extends State<DictionaryScreen> {
   final paging = PagingController<int, String>(
     firstPageKey: 0,
   );
-  late final search = SearchController(
+  late final search = AlgoliaSearchController(
     GlobalStore.languages,
     algolia.index('dictionary'),
     paging.refresh,
@@ -189,7 +189,7 @@ class DictionaryScreenState extends State<DictionaryScreen> {
                 delegate: SliverChildListDelegate([
                   if (EditorStore.admin) ...[
                     SwitchListTile(
-                      value: context.read<SearchController>().unverified,
+                      value: context.read<AlgoliaSearchController>().unverified,
                       secondary: const Icon(Icons.unpublished_outlined),
                       title: const Text('Only unverified'),
                       onChanged: (v) => setState(() {
@@ -202,7 +202,7 @@ class DictionaryScreenState extends State<DictionaryScreen> {
                   Builder(
                     builder: (context) {
                       final snapshot =
-                          context.watch<SearchController>().snapshot;
+                          context.watch<AlgoliaSearchController>().snapshot;
                       return Caption(
                         snapshot == null
                             ? 'Searching...'
@@ -246,7 +246,7 @@ class DictionaryScreenState extends State<DictionaryScreen> {
   }
 
   Widget _endCaption(BuildContext context) {
-    if (context.watch<SearchController>().snapshot?.nbHits == 0) {
+    if (context.watch<AlgoliaSearchController>().snapshot?.nbHits == 0) {
       return const SizedBox();
     }
     return Caption(
