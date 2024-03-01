@@ -5,6 +5,7 @@ import 'package:bazur/navigation/loader.dart';
 import 'package:bazur/navigation/router.gr.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class WordLoaderScreen extends StatelessWidget {
   const WordLoaderScreen(
     @pathParam this.id, {
@@ -26,7 +27,7 @@ class WordLoaderScreen extends StatelessWidget {
       then: (context, word) async {
         final router = context.router;
         if (word == null) {
-          router.navigate(const RootRoute());
+          router.navigate(RootRoute());
         } else {
           final router = context.router;
           await router.replace(
@@ -37,7 +38,7 @@ class WordLoaderScreen extends StatelessWidget {
             ),
           );
           if (router.stack.length < 2) {
-            router.navigate(const RootRoute());
+            router.navigate(RootRoute());
           }
         }
       },

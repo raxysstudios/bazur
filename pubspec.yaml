@@ -20,7 +20,7 @@ dependencies:
   algolia: ^1.1.1
   markdown: ^7.2.1
   flutter_markdown: ^0.6.10+2
-  package_info_plus: ^4.2.0
+  package_info_plus: ^5.0.1
   provider: ^6.0.3
   infinite_scroll_pagination: ^4.0.0
   flutter_map: ^4.0.0
@@ -41,6 +41,9 @@ dev_dependencies:
   json_serializable: ^6.2.0
   auto_route_generator: ^7.3.2
 
+dependency_overrides:
+  modal_bottom_sheet: ^3.0.0-pre
+
 flutter_icons:
   image_path: "assets/icon.png"
   android: true
@@ -50,6 +53,3 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
- 
-               
-        

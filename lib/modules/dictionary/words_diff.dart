@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'services/word.dart';
 
+@RoutePage()
 class WordsDiffScreen extends StatelessWidget {
   const WordsDiffScreen(
     this.base,

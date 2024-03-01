@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'widgets/language_card.dart';
 import 'widgets/languages_map.dart';
 
+@RoutePage()
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -135,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
           : FloatingActionButton(
               onPressed: () {
                 GlobalStore.set(selected.map((l) => l.name).toList());
-                context.navigateTo(const RootRoute());
+                context.navigateTo(RootRoute());
               },
               child: const Icon(Icons.done_all_outlined),
             ),

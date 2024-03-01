@@ -15,6 +15,7 @@ import 'services/search_controller.dart';
 import 'services/word.dart';
 import 'widgets/search_toolbar.dart';
 
+@RoutePage()
 class DictionaryScreen extends StatefulWidget {
   const DictionaryScreen({Key? key}) : super(key: key);
 

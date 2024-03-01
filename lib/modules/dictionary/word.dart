@@ -9,6 +9,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'widgets/word_view.dart';
 
+@RoutePage()
 class WordScreen extends StatelessWidget {
   const WordScreen(
     this.word, {
