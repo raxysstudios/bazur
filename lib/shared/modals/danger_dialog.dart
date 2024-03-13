@@ -19,7 +19,7 @@ void showDangerDialog(
           title: Text(title),
           actions: [
             TextButton.icon(
-              onPressed: () => context.popRoute(true),
+              onPressed: () => context.maybePop(true),
               icon: Icon(confirmIcon),
               label: Text(confirmText),
               style: ButtonStyle(
@@ -30,7 +30,7 @@ void showDangerDialog(
               ),
             ),
             TextButton.icon(
-              onPressed: context.popRoute,
+              onPressed: context.maybePop,
               icon: Icon(rejectIcon),
               label: Text(rejectText),
             ),

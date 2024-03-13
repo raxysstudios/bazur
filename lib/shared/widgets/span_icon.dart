@@ -5,8 +5,8 @@ class SpanIcon extends StatelessWidget {
     this.icon, {
     this.color,
     this.padding = const EdgeInsets.only(right: 2),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final IconData icon;
   final Color? color;
@@ -19,7 +19,7 @@ class SpanIcon extends StatelessWidget {
       child: Icon(
         icon,
         size: 16,
-        color: color ?? Theme.of(context).textTheme.caption?.color,
+        color: color ?? Theme.of(context).textTheme.bodySmall?.color,
       ),
     );
   }

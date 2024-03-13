@@ -6,8 +6,8 @@ import 'language_flag.dart';
 class LanguageTitle extends StatelessWidget {
   const LanguageTitle(
     this.language, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String language;
 

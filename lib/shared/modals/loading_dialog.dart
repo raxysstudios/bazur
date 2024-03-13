@@ -27,10 +27,10 @@ Future<T?> showLoadingDialog<T>(
                     SchedulerBinding.instance.addPostFrameCallback(
                       (_) {
                         if (snapshot.hasError) {
-                          context.popRoute();
+                          context.maybePop();
                           showSnackbar(context);
                         } else {
-                          context.popRoute(snapshot.data);
+                          context.maybePop(snapshot.data);
                         }
                       },
                     );

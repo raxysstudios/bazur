@@ -11,7 +11,7 @@ import 'widgets/languages_map.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
           : FloatingActionButton(
               onPressed: () {
                 GlobalStore.set(selected.map((l) => l.name).toList());
-                context.navigateTo(RootRoute());
+                context.navigateTo(const RootRoute());
               },
               child: const Icon(Icons.done_all_outlined),
             ),

@@ -13,8 +13,8 @@ class LanguagesMap extends StatelessWidget {
     required this.languages,
     required this.selected,
     required this.onToggle,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final List<Language> languages;
   final Set<Language> selected;

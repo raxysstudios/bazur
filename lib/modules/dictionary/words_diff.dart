@@ -13,8 +13,8 @@ class WordsDiffScreen extends StatelessWidget {
   const WordsDiffScreen(
     this.base,
     this.overwrite, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Word? base;
   final Word overwrite;
@@ -51,7 +51,7 @@ class WordsDiffScreen extends StatelessWidget {
               onPressed: () => deleteWord(
                 context,
                 overwrite.id!,
-                after: context.popRoute,
+                after: context.maybePop,
                 title: 'Reject the contribution?',
               ),
               icon: const Icon(Icons.delete_outlined),
@@ -65,7 +65,7 @@ class WordsDiffScreen extends StatelessWidget {
           onPressed: () async => acceptContribution(
             context,
             overwrite,
-            after: context.popRoute,
+            after: context.maybePop,
           ),
         ),
         body: TabBarView(

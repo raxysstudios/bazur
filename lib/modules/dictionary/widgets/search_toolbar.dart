@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import '../services/algolia_search_controller.dart';
 
 class SearchToolbar extends StatefulWidget {
-  const SearchToolbar({Key? key}) : super(key: key);
+  const SearchToolbar({super.key});
 
   @override
   SearchToolbarState createState() => SearchToolbarState();

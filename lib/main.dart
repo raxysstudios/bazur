@@ -32,7 +32,7 @@ void main() async {
 }
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
   final _appRouter = AppRouter();
 

@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
 import 'package:bazur/navigation/router.gr.dart';
-import 'package:flutter/material.dart';
 import 'root_guard.dart';
 import 'route_builders.dart';
 
@@ -54,5 +53,5 @@ class AppRouter extends $AppRouter {
 
 @RoutePage(name: 'RootRoute')
 class RootRouteScreen extends AutoRouter {
-  const RootRouteScreen({Key? key}) : super(key: key);
+  const RootRouteScreen({super.key});
 }

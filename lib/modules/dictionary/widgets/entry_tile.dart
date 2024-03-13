@@ -14,8 +14,8 @@ class EntryTile extends StatelessWidget {
     this.hit, {
     this.showLanguage = true,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class EntryTile extends StatelessWidget {
           Text(
             hit.headword.titled,
             style: styleNative.copyWith(
-              fontSize: theme.subtitle1?.fontSize,
+              fontSize: theme.titleMedium?.fontSize,
             ),
           ),
           if (hit.form != null && hit.form != hit.headword)
@@ -43,8 +43,8 @@ class EntryTile extends StatelessWidget {
               child: Text(
                 hit.form!.titled,
                 style: styleNative.copyWith(
-                  fontSize: theme.subtitle1?.fontSize,
-                  color: theme.caption?.color,
+                  fontSize: theme.titleMedium?.fontSize,
+                  color: theme.bodySmall?.color,
                 ),
               ),
             ),
@@ -52,7 +52,7 @@ class EntryTile extends StatelessWidget {
           if (showLanguage)
             Text(
               hit.language.titled,
-              style: theme.caption,
+              style: theme.bodySmall,
             ),
         ],
       ),

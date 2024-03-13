@@ -13,8 +13,8 @@ class WordView extends StatelessWidget {
   const WordView(
     this.word, {
     this.scroll,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Word word;
   final ScrollController? scroll;
@@ -36,21 +36,21 @@ class WordView extends StatelessWidget {
             SelectableText(
               word.headword.titled,
               style: styleNative.copyWith(
-                fontSize: theme.headline5?.fontSize,
+                fontSize: theme.headlineSmall?.fontSize,
               ),
             ),
             if (word.ipa != null)
               SelectableText(
                 '[${word.ipa!}]',
                 style: GoogleFonts.notoSans(
-                  textStyle: theme.bodyText1,
-                  color: theme.caption?.color,
+                  textStyle: theme.bodyLarge,
+                  color: theme.bodySmall?.color,
                 ),
               ),
             if (word.tags.isNotEmpty)
               Text(
                 word.tags.join(', '),
-                style: theme.caption,
+                style: theme.bodySmall,
               ),
             if (word.note != null) MarkdownText(word.note!),
           ],
@@ -73,8 +73,8 @@ class WordView extends StatelessWidget {
                 children: [
                   Text(
                     '${word.definitions.indexOf(d) + 1}',
-                    style: theme.headline6?.copyWith(
-                      color: theme.caption?.color,
+                    style: theme.titleLarge?.copyWith(
+                      color: theme.bodySmall?.color,
                     ),
                   ),
                   Expanded(
@@ -82,7 +82,7 @@ class WordView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: SelectableText(
                         d.translation.titled,
-                        style: theme.headline6,
+                        style: theme.titleLarge,
                       ),
                     ),
                   ),
@@ -93,7 +93,7 @@ class WordView extends StatelessWidget {
                       message: d.aliases.join(' • ').titled,
                       child: Icon(
                         Icons.label_outlined,
-                        color: Theme.of(context).textTheme.caption?.color,
+                        color: Theme.of(context).textTheme.bodySmall?.color,
                       ),
                     )
                 ],
@@ -101,7 +101,7 @@ class WordView extends StatelessWidget {
               if (d.tags.isNotEmpty)
                 Text(
                   d.tags.join(', '),
-                  style: theme.caption,
+                  style: theme.bodySmall,
                 ),
               if (d.note != null) MarkdownText(d.note!),
             ],

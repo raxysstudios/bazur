@@ -10,8 +10,8 @@ class LanguagesBar extends StatefulWidget {
     this.languages, {
     required this.onTap,
     required this.onClear,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Iterable<Language> languages;
   final ValueSetter<Language> onTap;

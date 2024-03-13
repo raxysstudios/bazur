@@ -14,8 +14,8 @@ class LanguageCard extends StatelessWidget {
     this.language, {
     this.selected = false,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,8 +7,8 @@ class SamplesColumn extends StatelessWidget {
     this.samples, {
     this.inline = false,
     this.padding = const EdgeInsets.only(top: 4),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final EdgeInsets padding;
   final Iterable<Sample> samples;
@@ -30,7 +30,7 @@ class SamplesColumn extends StatelessWidget {
               ),
               child: SelectableText.rich(
                 TextSpan(
-                  style: theme.bodyText2,
+                  style: theme.bodyMedium,
                   children: [
                     TextSpan(
                       text: s.text,
@@ -40,7 +40,7 @@ class SamplesColumn extends StatelessWidget {
                       TextSpan(text: inline ? ' ' : '\n'),
                       TextSpan(
                         text: inline ? s.meaning!.toUpperCase() : s.meaning,
-                        style: TextStyle(color: theme.caption?.color),
+                        style: TextStyle(color: theme.bodySmall?.color),
                       ),
                     ],
                   ],

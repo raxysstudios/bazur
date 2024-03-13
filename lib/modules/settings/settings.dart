@@ -10,7 +10,7 @@ import 'widgets/editor_mode_card.dart';
 
 @RoutePage()
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen({super.key});
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -22,7 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => context.navigateTo(RootRoute()),
+          onPressed: () => context.navigateTo(const RootRoute()),
           icon: const Icon(Icons.arrow_back_outlined),
         ),
         title: const Text('Settings'),

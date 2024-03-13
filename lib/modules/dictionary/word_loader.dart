@@ -10,8 +10,8 @@ class WordLoaderScreen extends StatelessWidget {
   const WordLoaderScreen(
     @pathParam this.id, {
     this.onEdit,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String id;
   final void Function(Word)? onEdit;
@@ -27,7 +27,7 @@ class WordLoaderScreen extends StatelessWidget {
       then: (context, word) async {
         final router = context.router;
         if (word == null) {
-          router.navigate(RootRoute());
+          router.navigate(const RootRoute());
         } else {
           final router = context.router;
           await router.replace(
@@ -38,7 +38,7 @@ class WordLoaderScreen extends StatelessWidget {
             ),
           );
           if (router.stack.length < 2) {
-            router.navigate(RootRoute());
+            router.navigate(const RootRoute());
           }
         }
       },

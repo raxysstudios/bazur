@@ -10,8 +10,8 @@ class LoaderScreen<T> extends StatefulWidget {
     this.future, {
     required this.then,
     this.requiredStack,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Future<T?> future;
   final List<PageRouteInfo>? requiredStack;

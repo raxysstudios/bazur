@@ -15,8 +15,8 @@ class WordScreen extends StatelessWidget {
     this.word, {
     @pathParam String? id,
     this.onEdit,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Word word;
   final ValueSetter<Word>? onEdit;
@@ -57,7 +57,7 @@ class WordScreen extends StatelessWidget {
           : FloatingActionButton(
               child: const Icon(Icons.edit_outlined),
               onPressed: () async {
-                context.popRoute();
+                context.maybePop();
                 onEdit!(word);
               },
             ),

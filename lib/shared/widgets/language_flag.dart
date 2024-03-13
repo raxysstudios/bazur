@@ -16,8 +16,8 @@ class LanguageFlag extends StatelessWidget {
     this.scale = 2,
     this.rotation = -pi / 4,
     this.offset = const Offset(0, 0),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

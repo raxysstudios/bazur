@@ -7,8 +7,8 @@ class LanguageAvatar extends StatelessWidget {
   const LanguageAvatar(
     this.language, {
     this.radius,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
