@@ -11,8 +11,8 @@ class ColumnCard extends StatelessWidget {
     this.margin = const EdgeInsets.only(top: 12),
     this.padding = EdgeInsets.zero,
     this.shape = const RoundedRectangleBorder(),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final EdgeInsets margin;
   final EdgeInsets padding;
@@ -42,7 +42,7 @@ class ColumnCard extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
                   child: Text(
                     title!,
-                    style: theme.bodyText1,
+                    style: theme.bodyLarge,
                   ),
                 ),
               if (subtitle != null)
@@ -50,7 +50,7 @@ class ColumnCard extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
                   child: Text(
                     subtitle!,
-                    style: theme.bodyText2,
+                    style: theme.bodyMedium,
                   ),
                 ),
               const SizedBox(height: 12),

@@ -2,8 +2,8 @@ import 'package:algolia/algolia.dart';
 import 'package:bazur/models/entry.dart';
 import 'package:flutter/material.dart';
 
-class SearchController with ChangeNotifier {
-  SearchController(
+class AlgoliaSearchController with ChangeNotifier {
+  AlgoliaSearchController(
     this._languages,
     this._index, [
     this._onSearch,

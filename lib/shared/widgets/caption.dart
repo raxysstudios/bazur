@@ -8,8 +8,8 @@ class Caption extends StatelessWidget {
     this.icon,
     this.padding = const EdgeInsets.all(16),
     this.centered = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String text;
   final IconData? icon;
@@ -32,7 +32,7 @@ class Caption extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-              color: Theme.of(context).textTheme.caption?.color,
+              color: Theme.of(context).textTheme.bodySmall?.color,
               fontSize: 14,
               fontStyle: FontStyle.italic,
             ),

@@ -7,8 +7,8 @@ class SamplesEditor extends StatefulWidget {
     this.title,
     this.samples, {
     this.lowercase = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String title;
   final bool lowercase;

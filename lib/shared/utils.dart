@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 void copyText(BuildContext context, String? text) async {
   if (text?.isNotEmpty ?? false) {
     await Clipboard.setData(
-      ClipboardData(text: text),
+      ClipboardData(text: text!),
     );
     showSnackbar(
       context,

@@ -9,13 +9,14 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'widgets/word_view.dart';
 
+@RoutePage()
 class WordScreen extends StatelessWidget {
   const WordScreen(
     this.word, {
     @pathParam String? id,
     this.onEdit,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Word word;
   final ValueSetter<Word>? onEdit;
@@ -56,7 +57,7 @@ class WordScreen extends StatelessWidget {
           : FloatingActionButton(
               child: const Icon(Icons.edit_outlined),
               onPressed: () async {
-                context.popRoute();
+                context.maybePop();
                 onEdit!(word);
               },
             ),

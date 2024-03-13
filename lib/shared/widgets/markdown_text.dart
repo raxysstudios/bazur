@@ -7,8 +7,8 @@ class MarkdownText extends StatelessWidget {
   const MarkdownText(
     this.text, {
     this.selectable = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final bool selectable;
   final String text;

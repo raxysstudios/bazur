@@ -5,7 +5,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 Route<T> dialogRouteBuilder<T>(
   BuildContext context,
   Widget child,
-  CustomPage<T> page,
+  AutoRoutePage<T> page,
 ) {
   return DialogRoute(
     settings: page,
@@ -18,9 +18,9 @@ Route<T> dialogRouteBuilder<T>(
 Route<T> sheetRouteBuilder<T>(
   BuildContext context,
   Widget child,
-  CustomPage<T> page,
+  AutoRoutePage<T> page,
 ) {
-  return ModalBottomSheetRoute(
+  return ModalSheetRoute(
     settings: page,
     expanded: true,
     builder: (context) {

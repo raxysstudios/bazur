@@ -9,8 +9,9 @@ import 'package:flutter/material.dart';
 import 'widgets/language_card.dart';
 import 'widgets/languages_map.dart';
 
+@RoutePage()
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

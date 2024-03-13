@@ -12,7 +12,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class EditorModeCard extends StatefulWidget {
-  const EditorModeCard({Key? key}) : super(key: key);
+  const EditorModeCard({super.key});
 
   @override
   State<EditorModeCard> createState() => _EditorModeCardState();

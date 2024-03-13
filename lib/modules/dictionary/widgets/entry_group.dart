@@ -10,8 +10,8 @@ class EntryGroup extends StatelessWidget {
     this.groups, {
     this.onTap,
     this.showLanguage = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final bool showLanguage;
   final List<List<Entry>> groups;
@@ -36,7 +36,7 @@ class EntryGroup extends StatelessWidget {
               Text(
                 groups.first.first.translation.titled,
                 style: TextStyle(
-                  color: theme.caption?.color,
+                  color: theme.bodySmall?.color,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -48,7 +48,7 @@ class EntryGroup extends StatelessWidget {
                       tags.join(', '),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: theme.caption,
+                      style: theme.bodySmall,
                     ),
                   ),
                 ),

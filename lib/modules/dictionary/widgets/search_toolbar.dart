@@ -7,10 +7,10 @@ import 'package:bazur/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../services/search_controller.dart';
+import '../services/algolia_search_controller.dart';
 
 class SearchToolbar extends StatefulWidget {
-  const SearchToolbar({Key? key}) : super(key: key);
+  const SearchToolbar({super.key});
 
   @override
   SearchToolbarState createState() => SearchToolbarState();
@@ -51,16 +51,16 @@ class SearchToolbarState extends State<SearchToolbar> {
     super.dispose();
   }
 
-  void search() => context.read<SearchController>().query(_input.text);
+  void search() => context.read<AlgoliaSearchController>().query(_input.text);
 
   void setLanguage(String language) {
-    context.read<SearchController>().setLanguage(language);
+    context.read<AlgoliaSearchController>().setLanguage(language);
     _input.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    final search = context.watch<SearchController>();
+    final search = context.watch<AlgoliaSearchController>();
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

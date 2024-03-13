@@ -1,4 +1,5 @@
 import 'package:algolia/algolia.dart';
+import 'package:bazur/navigation/router.dart';
 import 'package:bazur/store.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -8,8 +9,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'firebase_options.dart';
-import 'navigation/root_guard.dart';
-import 'navigation/router.gr.dart';
 import 'theme_set.dart';
 
 void main() async {
@@ -33,9 +32,9 @@ void main() async {
 }
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+  App({super.key});
 
-  final _appRouter = AppRouter(rootGuard: RootGuard());
+  final _appRouter = AppRouter();
 
   @override
   Widget build(context) {
@@ -44,8 +43,7 @@ class App extends StatelessWidget {
       title: 'Bazur',
       theme: theme.light,
       darkTheme: theme.dark,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
+      routerConfig: _appRouter.config(),
     );
   }
 }

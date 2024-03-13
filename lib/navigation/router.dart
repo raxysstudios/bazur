@@ -1,59 +1,57 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:bazur/modules/dictionary/dictionary.dart';
-import 'package:bazur/modules/dictionary/word.dart';
-import 'package:bazur/modules/dictionary/word_editor.dart';
-import 'package:bazur/modules/dictionary/word_loader.dart';
-import 'package:bazur/modules/dictionary/words_diff.dart';
-import 'package:bazur/modules/home/home.dart';
-import 'package:bazur/modules/settings/settings.dart';
 
+import 'package:bazur/navigation/router.gr.dart';
 import 'root_guard.dart';
 import 'route_builders.dart';
 
-@MaterialAutoRouter(
-  replaceInRouteName: 'Screen,Route',
-  routes: [
-    AutoRoute<void>(
-      path: '/',
-      page: EmptyRouterScreen,
-      name: 'RootRoute',
-      guards: [RootGuard],
-      children: [
-        AutoRoute<void>(
-          path: '',
-          page: DictionaryScreen,
+@AutoRouterConfig(replaceInRouteName: 'Screen,Route')
+class AppRouter extends $AppRouter {
+  @override
+  List<AutoRoute> get routes => [
+        AutoRoute(
+          path: '/',
+          page: RootRoute.page,
+          guards: [RootGuard()],
+          children: [
+            AutoRoute(
+              path: '',
+              page: DictionaryRoute.page,
+            ),
+            CustomRoute(
+              path: 'editor',
+              page: WordEditorRoute.page,
+              customRouteBuilder: sheetRouteBuilder,
+            ),
+            CustomRoute(
+              path: 'diff',
+              page: WordsDiffRoute.page,
+              customRouteBuilder: sheetRouteBuilder,
+            ),
+            CustomRoute(
+              path: ':id',
+              page: WordLoaderRoute.page,
+              customRouteBuilder: dialogRouteBuilder,
+            ),
+            CustomRoute(
+              path: ':id',
+              page: WordRoute.page,
+              customRouteBuilder: sheetRouteBuilder,
+            ),
+          ],
         ),
-        CustomRoute<void>(
-          path: 'editor',
-          page: WordEditorScreen,
-          customRouteBuilder: sheetRouteBuilder,
+        AutoRoute(
+          path: '/home',
+          page: HomeRoute.page,
         ),
-        CustomRoute<void>(
-          path: 'diff',
-          page: WordsDiffScreen,
-          customRouteBuilder: sheetRouteBuilder,
+        AutoRoute(
+          path: '/settings',
+          page: SettingsRoute.page,
         ),
-        CustomRoute<void>(
-          path: ':id',
-          page: WordLoaderScreen,
-          customRouteBuilder: dialogRouteBuilder,
-        ),
-        CustomRoute<void>(
-          path: ':id',
-          page: WordScreen,
-          customRouteBuilder: sheetRouteBuilder,
-        ),
-      ],
-    ),
-    AutoRoute<void>(
-      path: '/home',
-      page: HomeScreen,
-    ),
-    AutoRoute<void>(
-      path: '/settings',
-      page: SettingsScreen,
-    ),
-    RedirectRoute(path: '*', redirectTo: '/'),
-  ],
-)
-class $AppRouter {}
+        RedirectRoute(path: '*', redirectTo: '/'),
+      ];
+}
+
+@RoutePage(name: 'RootRoute')
+class RootRouteScreen extends AutoRouter {
+  const RootRouteScreen({super.key});
+}

@@ -50,8 +50,8 @@ class OptionsButton extends StatelessWidget {
     this.options, {
     this.icon = const Icon(Icons.more_vert_outlined),
     this.tooltip,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Widget icon;
   final String? tooltip;

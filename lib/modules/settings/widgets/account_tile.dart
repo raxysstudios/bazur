@@ -10,7 +10,7 @@ import '../services/credentials.dart';
 import '../services/signing.dart';
 
 class AccountTile extends StatefulWidget {
-  const AccountTile({Key? key}) : super(key: key);
+  const AccountTile({super.key});
 
   @override
   State<AccountTile> createState() => _AccountTileState();

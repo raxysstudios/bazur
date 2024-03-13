@@ -13,12 +13,13 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import 'services/word.dart';
 
+@RoutePage()
 class WordEditorScreen extends StatefulWidget {
   const WordEditorScreen(
     this.word, {
     this.onDone,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Word word;
   final VoidCallback? onDone;
@@ -32,7 +33,7 @@ class _WordEditorScreenState extends State<WordEditorScreen> {
   late final word = widget.word;
 
   void exit() {
-    context.popRoute();
+    context.maybePop();
     widget.onDone?.call();
   }
 

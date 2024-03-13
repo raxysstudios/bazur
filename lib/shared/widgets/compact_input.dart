@@ -15,8 +15,8 @@ class CompactInput extends StatelessWidget {
     this.noEmpty = false,
     this.multiline = false,
     this.trailing,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final IconData? icon;
   final String label;

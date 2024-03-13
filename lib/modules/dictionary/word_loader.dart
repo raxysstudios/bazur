@@ -5,12 +5,13 @@ import 'package:bazur/navigation/loader.dart';
 import 'package:bazur/navigation/router.gr.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class WordLoaderScreen extends StatelessWidget {
   const WordLoaderScreen(
     @pathParam this.id, {
     this.onEdit,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String id;
   final void Function(Word)? onEdit;
